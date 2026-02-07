@@ -1,0 +1,7 @@
+{
+  "frontend/src/content/class9Summaries.ts": "Exports bilingual subject content data (English and Hindi) for all 7 Class 9 subjects with titles, content, illustrative images, and language-aware alt text.",
+  "frontend/src/App.tsx": "Main single-page application component with language toggle (EN/HI), sticky header with \"Study Vibe\" branding, hero banner, quick-jump navigation, responsive grid of subject cards with illustrative images, and footer with attribution.",
+  "frontend/src/index.css": "Global styles with warm academic color palette using OKLCH (parchment/cream backgrounds, amber/terracotta accents) for both light and dark modes, avoiding blue/purple tones.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom font families (Inter, Merriweather) and maintaining the warm color system defined in index.css.",
+  "frontend/index.html": "HTML entry point with updated page title \"Study Vibe\" and standard meta tags for the application."
+}

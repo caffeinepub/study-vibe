@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Rename the site to “Study Vibe” and extend the Class 9 single-page subject summaries site by adding illustrative images for each subject and providing Hindi translations for all subjects/content.",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "Single-page “Study Vibes Class 9” subject summary site",
+      "synonyms": [
+        "Study Vibes Class 9 page",
+        "Class 9 summaries landing page"
+      ],
+      "description": "Renders a single-page website titled “Study Vibes Class 9” that displays seven subject summaries sourced from a typed content module and shown as individual sections/cards.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Responsive multi-column subject card layout",
+      "synonyms": [
+        "Responsive grid",
+        "Adaptive columns"
+      ],
+      "description": "Displays subject sections in a responsive grid (single column on small screens, multi-column on larger breakpoints) with spacing and typography intended for readability.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Sticky header with branding and static generated images",
+      "synonyms": [
+        "Header branding",
+        "Hero banner"
+      ],
+      "description": "Implements a sticky header with a logo and site title plus a hero banner image loaded from static frontend assets under /assets/generated (no backend image routing).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Quick-jump subject navigation with smooth scrolling",
+      "synonyms": [
+        "In-page navigation",
+        "Subject menu"
+      ],
+      "description": "Provides a horizontally scrollable subject menu that scrolls smoothly to the corresponding subject section using element IDs.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Warm academic visual theme via design tokens",
+      "synonyms": [
+        "Tailwind token theme",
+        "OKLCH theme"
+      ],
+      "description": "Defines a cohesive warm (non blue/purple) color palette and typography styling via CSS variables consumed by Tailwind, including light and dark token sets.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Readable long-form content rendering",
+      "synonyms": [
+        "Typography formatting",
+        "Paragraph splitting"
+      ],
+      "description": "Renders subject content with paragraph splitting on double newlines and applies prose/typography styles for better long-text readability.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "App bootstrapping with React Query and Internet Identity provider",
+      "synonyms": [
+        "Providers setup",
+        "QueryClient integration"
+      ],
+      "description": "Bootstraps the app with a global React Query client/provider and wraps the component tree in an Internet Identity context provider for identity availability across reloads.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Internet Identity authentication and ICP actor creation hooks (infrastructure)",
+      "synonyms": [
+        "II auth hook",
+        "DFINITY actor hook"
+      ],
+      "description": "Includes hooks to manage Internet Identity login/logout and to create an authenticated or anonymous backend actor instance that reacts to identity changes (intended for ICP canister calls).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-rename-the-app-site-branding-from-study-vibes-class-9-to-study-vibe-across-all-user-visible-ui-and-page-metadata-including-the-header-title-in-the-react-ui-and-the-html-document-title",
+      "title": "Rename the app/site branding from “Study Vibes Class 9” to “Study Vibe” across all user-visible UI and page metadata (including the header title in the React UI and the HTML document title).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-hindi-translations-for-all-subject-titles-and-subject-summary-content-and-provide-a-ui-control-to-switch-the-displayed-language-between-english-and-hindi-for-the-entire-page-navigation-labels-subject-card-titles-and-subject-content",
+      "title": "Add Hindi translations for all subject titles and subject summary content, and provide a UI control to switch the displayed language between English and Hindi for the entire page (navigation labels, subject card titles, and subject content).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-subject-specific-illustrative-image-for-each-subject-mathematics-science-social-science-hindi-sanskrit-computer-application-english-and-display-it-in-the-ui-within-each-subject-card-in-a-consistent-responsive-layout",
+      "title": "Add a subject-specific illustrative image for each subject (Mathematics, Science, Social Science, Hindi, Sanskrit, Computer Application, English) and display it in the UI within each subject card in a consistent, responsive layout.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-existing-generated-branding-images-to-align-with-the-renamed-app-study-vibe-and-ensure-the-ui-continues-to-reference-the-correct-static-asset-filenames-under-assets-generated",
+      "title": "Update existing generated branding images to align with the renamed app “Study Vibe”, and ensure the UI continues to reference the correct static asset filenames under /assets/generated/.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add illustrative images/icons for each subject section (Mathematics, Science, Social Science, Hindi, Sanskrit, Computer Application, English) and display them in the UI.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Provide Hindi translation for all subjects/content (add Hindi versions of the subject summaries and expose them in the UI).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Change site/app name from “Study Vibes Class 9” to “Study Vibe” across UI branding and metadata.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "Frontend is a React SPA (Vite-style entry) with TailwindCSS and Tailwind Typography for readable long-form text styling.",
+    "Content is modeled as a typed data module (class9Summaries.ts) and rendered declaratively by mapping over the array.",
+    "UI structure uses sticky header + sticky sub-navigation to improve usability on long pages.",
+    "Theme is implemented via CSS variables (OKLCH) wired into Tailwind config, enabling consistent light/dark palettes through design tokens.",
+    "Static images are expected to be served directly from the frontend public path (/assets/generated/...) rather than via the backend.",
+    "React Query is included as an application-wide provider to support cached async data flows.",
+    "Internet Identity is implemented as a React context provider (AuthClient) for persistent identity across reloads.",
+    "ICP canister interaction is abstracted behind an actor-creation hook (useActor) that recreates the actor based on the current identity."
+  ],
+  "known_issues": [
+    "The backend canister (backend/main.mo) defines an empty actor with no methods; the app is currently purely static content.",
+    "Authentication is implemented (Internet Identity provider and hooks) but there is no UI to trigger login/logout, and no app features currently depend on identity.",
+    "The code references generated image assets under /assets/generated/, but the actual image files are not present in the provided file listing (may be missing from repo or not included here).",
+    "There appear to be duplicate/conflicting global CSS theme files in the provided listing (frontend/index.css vs frontend/src/index.css) with different token sets; this can cause confusion about which theme is active in builds.",
+    "Dark mode variables exist (Tailwind darkMode: 'class') but there is no in-app mechanism to toggle the dark class.",
+    "Internet Identity configuration depends on environment (process.env.II_URL) and config loading; misconfiguration will break login.",
+    "useActor invalidates/refetches all non-actor React Query queries whenever the actor changes, which can be unnecessarily expensive for larger apps.",
+    "No automated tests are present in the provided codebase."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Mathematics illustrative icon/mini-illustration, flat warm academic style (subject-mathematics.dim_768x512.png)\n- Science illustrative icon/mini-illustration, flat warm academic style (subject-science.dim_768x512.png)\n- Social Science illustrative icon/mini-illustration, flat warm academic style (subject-social-science.dim_768x512.png)\n- Hindi illustrative icon/mini-illustration, flat warm academic style (subject-hindi.dim_768x512.png)\n- Sanskrit illustrative icon/mini-illustration, flat warm academic style (subject-sanskrit.dim_768x512.png)\n- Computer Application illustrative icon/mini-illustration, flat warm academic style (subject-computer-application.dim_768x512.png)\n- English illustrative icon/mini-illustration, flat warm academic style (subject-english.dim_768x512.png)\n\n## Edit Images\n- Update branding to “Study Vibe” (study-vibes-logo.dim_512x512.png > study-vibes-logo.dim_512x512.png)\n- Update branding to “Study Vibe” (study-vibes-hero.dim_1600x600.png > study-vibes-hero.dim_1600x600.png)",
+  "generatedImages": [
+    {
+      "filename": "subject-mathematics.dim_768x512.png",
+      "description": "Mathematics illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-science.dim_768x512.png",
+      "description": "Science illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-social-science.dim_768x512.png",
+      "description": "Social Science illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-hindi.dim_768x512.png",
+      "description": "Hindi illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-sanskrit.dim_768x512.png",
+      "description": "Sanskrit illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-computer-application.dim_768x512.png",
+      "description": "Computer Application illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "subject-english.dim_768x512.png",
+      "description": "English illustrative icon/mini-illustration, flat warm academic style",
+      "targetWidth": 768,
+      "targetHeight": 512
+    },
+    {
+      "filename": "study-vibes-logo.dim_512x512.png",
+      "description": "Update branding to “Study Vibe”",
+      "targetWidth": 512,
+      "targetHeight": 512
+    },
+    {
+      "filename": "study-vibes-hero.dim_1600x600.png",
+      "description": "Update branding to “Study Vibe”",
+      "targetWidth": 1600,
+      "targetHeight": 600
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Study Vibe",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

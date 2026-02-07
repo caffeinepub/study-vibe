@@ -1,0 +1,133 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Study Vibe rebrand + bilingual (EN/HI) UI + subject illustrations",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Rename all visible branding and page metadata from “Study Vibes Class 9” to “Study Vibe”.",
+      "acceptanceCriteria": [
+        "Header branding text displays “Study Vibe” instead of “Study Vibes Class 9”.",
+        "The browser tab/title (frontend/index.html) is updated to “Study Vibe”.",
+        "Any remaining visible occurrences of “Study Vibes Class 9” in the UI are updated to “Study Vibe” (excluding image filenames unless explicitly changed)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the HTML document <title> to “Study Vibe” and ensure metadata remains consistent with the renamed branding."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update header brand text to “Study Vibe” and adjust any user-visible branding strings (including image alt text for logo/hero if present) to reflect the rename."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add Hindi translations for all subject titles and summaries and provide an in-app language toggle that switches the entire page between English and Hindi.",
+      "acceptanceCriteria": [
+        "A language toggle is available in the UI (e.g., in the header) with English and Hindi options.",
+        "When Hindi is selected, each subject card shows Hindi title and Hindi content for the same subject, and the quick-jump navigation labels reflect the selected language.",
+        "When English is selected, the current English titles/content remain available exactly as before.",
+        "No subject is missing a Hindi translation (titles and content) for: Mathematics, Science, Social Science, Hindi, Sanskrit, Computer Application, English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/class9Summaries.ts",
+          "operation": "modify",
+          "description": "Extend the subject content model to include both English and Hindi for each subject (titles + summary content), preserving the existing English text exactly as-is while adding complete Hindi equivalents for all seven subjects."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a global language state (English/Hindi) and wire it to: header navigation labels, quick-jump buttons, subject card titles, subject content, and any other visible labels on the page. Use the shadcn-ui component set (e.g., a ToggleGroup/Select/Button variant from the existing library) to render the language control in the header. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add and display one subject-specific illustrative image per subject in a consistent, responsive subject card layout with language-aware alt text.",
+      "acceptanceCriteria": [
+        "Each subject card displays its own illustrative image loaded from static assets under frontend/public/assets/generated.",
+        "There are 7 distinct subject images (one per subject), and they visually differ to match the subject theme.",
+        "Images are sized/cropped consistently across cards and do not break the grid layout on mobile/tablet/desktop.",
+        "Images include appropriate alt text that follows the selected language (English alt text in English mode; Hindi alt text in Hindi mode)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/subject-mathematics.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Mathematics illustrative image asset at frontend/public/assets/generated/subject-mathematics.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-science.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Science illustrative image asset at frontend/public/assets/generated/subject-science.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-social-science.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Social Science illustrative image asset at frontend/public/assets/generated/subject-social-science.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-hindi.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Hindi illustrative image asset at frontend/public/assets/generated/subject-hindi.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-sanskrit.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Sanskrit illustrative image asset at frontend/public/assets/generated/subject-sanskrit.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-computer-application.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated Computer Application illustrative image asset at frontend/public/assets/generated/subject-computer-application.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/public/assets/generated/subject-english.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the generated English illustrative image asset at frontend/public/assets/generated/subject-english.dim_768x512.png and ensure it is suitable for responsive card display."
+        },
+        {
+          "path": "frontend/src/content/class9Summaries.ts",
+          "operation": "modify",
+          "description": "Add a stable mapping from each subject to its illustrative image filename (under frontend/public/assets/generated/) and provide English/Hindi alt text strings per subject for use by the UI."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Render each subject’s illustrative image within the subject card using a consistent responsive layout (e.g., fixed aspect ratio, object-fit cropping) and wire alt text to the selected language (English/Hindi). Ensure images use the exact generated asset paths under frontend/public/assets/generated/."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Update existing generated branding images to match “Study Vibe” while keeping correct static asset references in the UI.",
+      "acceptanceCriteria": [
+        "The logo and hero/banner visuals are updated to match the “Study Vibe” branding (while keeping the app’s warm academic theme).",
+        "frontend/src/App.tsx continues to load the logo and hero images from /assets/generated/ and they render correctly in header/hero.",
+        "No broken image links are present in the header or hero sections."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/study-vibes-logo.dim_512x512.png",
+          "operation": "modify",
+          "description": "Update the existing generated logo image content to reflect “Study Vibe” branding while keeping the same filename (frontend/public/assets/generated/study-vibes-logo.dim_512x512.png)."
+        },
+        {
+          "path": "frontend/public/assets/generated/study-vibes-hero.dim_1600x600.png",
+          "operation": "modify",
+          "description": "Update the existing generated hero/banner image content to reflect “Study Vibe” branding while keeping the same filename (frontend/public/assets/generated/study-vibes-hero.dim_1600x600.png)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Verify header/hero still reference the correct /assets/generated/ filenames and adjust any related copy/alt text to “Study Vibe” to avoid broken links or mismatched branding."
+        }
+      ]
+    }
+  ]
+}

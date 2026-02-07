@@ -1,0 +1,120 @@
+{
+  "kind": "build_request",
+  "title": "Rename to Study Vibe, add Hindi translations, and add illustrative subject images",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "text": "Rename the app/site branding from “Study Vibes Class 9” to “Study Vibe” across all user-visible UI and page metadata (including the header title in the React UI and the HTML document title).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Change Name To Study Vibe"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header branding text displays “Study Vibe” instead of “Study Vibes Class 9”.",
+        "The browser tab/title (frontend/index.html) is updated to “Study Vibe”.",
+        "Any remaining visible occurrences of “Study Vibes Class 9” in the UI are updated to “Study Vibe” (excluding image filenames unless explicitly changed)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add Hindi translations for all subject titles and subject summary content, and provide a UI control to switch the displayed language between English and Hindi for the entire page (navigation labels, subject card titles, and subject content).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Hindi translation of All subjects"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A language toggle is available in the UI (e.g., in the header) with English and Hindi options.",
+        "When Hindi is selected, each subject card shows Hindi title and Hindi content for the same subject, and the quick-jump navigation labels reflect the selected language.",
+        "When English is selected, the current English titles/content remain available exactly as before.",
+        "No subject is missing a Hindi translation (titles and content) for: Mathematics, Science, Social Science, Hindi, Sanskrit, Computer Application, English."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a subject-specific illustrative image for each subject (Mathematics, Science, Social Science, Hindi, Sanskrit, Computer Application, English) and display it in the UI within each subject card in a consistent, responsive layout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add illustrative images of all the subjects"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each subject card displays its own illustrative image loaded from static assets under frontend/public/assets/generated.",
+        "There are 7 distinct subject images (one per subject), and they visually differ to match the subject theme.",
+        "Images are sized/cropped consistently across cards and do not break the grid layout on mobile/tablet/desktop.",
+        "Images include appropriate alt text that follows the selected language (English alt text in English mode; Hindi alt text in Hindi mode)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Update existing generated branding images to align with the renamed app “Study Vibe”, and ensure the UI continues to reference the correct static asset filenames under /assets/generated/.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Change Name To Study Vibe"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The logo and hero/banner visuals are updated to match the “Study Vibe” branding (while keeping the app’s warm academic theme).",
+        "frontend/src/App.tsx continues to load the logo and hero images from /assets/generated/ and they render correctly in header/hero.",
+        "No broken image links are present in the header or hero sections."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not edit immutable hook files under frontend/src/hooks/* listed as immutable in system context.",
+    "Keep backend as a single Motoko actor; no new backend work is required for this static-content change unless strictly necessary."
+  ],
+  "nonGoals": [
+    "Adding new backend APIs or persistence for translations/images.",
+    "Adding login/logout UI or making app features depend on Internet Identity.",
+    "Adding new subjects beyond the existing seven Class 9 subjects."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Mathematics illustrative icon/mini-illustration, flat warm academic style (subject-mathematics.dim_768x512.png)",
+      "Science illustrative icon/mini-illustration, flat warm academic style (subject-science.dim_768x512.png)",
+      "Social Science illustrative icon/mini-illustration, flat warm academic style (subject-social-science.dim_768x512.png)",
+      "Hindi illustrative icon/mini-illustration, flat warm academic style (subject-hindi.dim_768x512.png)",
+      "Sanskrit illustrative icon/mini-illustration, flat warm academic style (subject-sanskrit.dim_768x512.png)",
+      "Computer Application illustrative icon/mini-illustration, flat warm academic style (subject-computer-application.dim_768x512.png)",
+      "English illustrative icon/mini-illustration, flat warm academic style (subject-english.dim_768x512.png)"
+    ],
+    "edits": [
+      "Update branding to “Study Vibe” (study-vibes-logo.dim_512x512.png > study-vibes-logo.dim_512x512.png)",
+      "Update branding to “Study Vibe” (study-vibes-hero.dim_1600x600.png > study-vibes-hero.dim_1600x600.png)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Prefer bilingual (English/Hindi) content with a simple in-app language toggle."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {
+      "projectName": "Study Vibe"
+    },
+    "fieldsToDelete": []
+  }
+}
